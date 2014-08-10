@@ -1,3 +1,48 @@
-// Place all the styles related to the StaticPages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#logo {
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #fff;
+	transition: all 0.3s;
+}
+#logo:hover {
+	text-shadow: 0 0 10px #fff;
+}
+.navbar {
+	border-radius: 0 0 4px 4px !important;
+}
+.jumbotron {
+	text-align: center;
+}
+.jumbotron h1 {
+	font-weight: bold;
+}
+.jumbotron h1,
+.jumbotron h2 {
+	letter-spacing: -1px;
+}
+
+#signupBtn {
+	margin: 30px 0 0;
+}
+.footer {
+	overflow: hidden;
+	padding: 20px 0 0;
+	border-top: 1px solid #efefef;
+}
+.footer nav {
+	float: right;
+	margin: 0;
+	padding: 0;
+}
+.footer nav ul {
+	list-style: none;
+	overflow: hidden;
+}
+.footer nav ul li {
+	float: left;
+	display: inline-block;
+	padding: 0 10px;
+}
+.footer nav ul li + li {
+	border-left: 1px solid #eaeaea;
+}
