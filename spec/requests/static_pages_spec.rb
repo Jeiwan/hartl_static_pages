@@ -6,6 +6,7 @@ RSpec.describe "Static pages", :type => :request do
     before { visit home_path }
     it { should have_content('Welcome') }
     it { should have_title('Home') }
+    it { should have_selector('a', text: 'Sign In!')}
   end
 
   subject { page }
@@ -35,5 +36,4 @@ RSpec.describe "Static pages", :type => :request do
     it { should have_selector('h1', text: 'Other page') }
     it { should have_title('Another page') }
   end
-
 end

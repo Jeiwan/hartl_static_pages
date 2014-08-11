@@ -4,11 +4,27 @@
 			<div class="navbar-header">
 				<a href="/" class="navbar-brand" id="logo">Static Pages</a>
 			</div>
-			<ul class="nav navbar-nav navbar-right">
+			<ul class="nav navbar-nav navbar-left">
 				<li><%= link_to 'Contact Us', contact_path %></li>
 				<li><%= link_to 'Help', help_path %></li>
 				<li><%= link_to 'About', about_path %></li>
 				<li><%= link_to 'Other Page', other_path %></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<% if current_user %>
+					<li>
+						<p class="navbar-text">
+							Logged in as <%= current_user.name %>
+						</p>
+					</li>
+					<li><%= link_to 'Log out', logout_path, method: :delete %></li>
+				<% else %>
+					<li>
+						<p class="navbar-text">Not logged in.</p>
+					</li>
+					<li><%= link_to 'Sign up', signup_path %></li>
+					<li><%= link_to 'Log in', login_path %></li>
+				<% end %>	
 			</ul>
 		</div>
 	</nav>
