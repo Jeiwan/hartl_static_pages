@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 	# attr_accessor :password, :password_confirmation
 
 	before_save :encrypt_password
-	before_save { self.email = email.downcase }
+	before_save { email.downcase! }
 
 	validates_presence_of :name, :email, :password, :password_confirmation
 	validates :name, length: { in: 3..32 }
