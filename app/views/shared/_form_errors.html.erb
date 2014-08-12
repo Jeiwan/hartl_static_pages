@@ -1,0 +1,8 @@
+<% if @user.errors.any? %>
+	<p class="alert alert-danger">There are <%= @user.errors.count %> errors!</p>
+	<ul>
+		<% @user.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+		<% end %>
+	</ul>
+<% end %>

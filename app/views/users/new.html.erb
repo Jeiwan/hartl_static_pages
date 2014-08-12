@@ -1,42 +1,42 @@
 <% page_title 'Sign Up' %>
-<h1>Sign Up</h1>
-
-<%= form_for @user, url: signup_path do |f| %>
-	<% if @user.errors.any? %>
-		<p class="alert alert-danger">There are <%= @user.errors.count %> errors!</p>
-		<ul>
-			<% @user.errors.full_messages.each do |message| %>
-				<li><%= message %></li>
-			<% end %>
-		</ul>
-	<% end %>
-	<div class="form-group row">
-		<%= f.label :name, class: 'col-md-2' %>
-		<div class="col-md-10">
-			<%= f.text_field :name, class: 'form-control' %>
+<div class="row">
+	<div class="col-md-offset-3 col-md-6">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<h1>Sign Up</h1>
+				<%= render 'shared/form_errors' %>
+				<%= form_for @user, url: signup_path, html: { id: 'new_user' } do |f| %>
+					<div class="form-group row">
+						<%= f.label :name, class: 'col-md-2' %>
+						<div class="col-md-10">
+							<%= f.text_field :name, class: 'form-control' %>
+						</div>
+					</div>
+					<div class="form-group row">
+						<%= f.label :email, class: 'col-md-2' %>
+						<div class="col-md-10">
+							<%= f.email_field :email, class: 'form-control' %>
+						</div>
+					</div>
+					<div class="form-group row">
+						<%= label_tag 'user_password', 'Password', class: 'col-md-2' %>
+						<div class="col-md-10">
+							<%= password_field_tag 'user[password]', nil, class: 'form-control' %>
+						</div>
+					</div>
+					<div class="form-group row">
+						<%= label_tag 'user_password_confirmation', 'Password Confirmation', class: 'col-md-2' %>
+						<div class="col-md-10">
+							<%= password_field_tag 'user[password_confirmation]', nil, class: 'form-control' %>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-md-offset-2 col-md-10">
+							<%= f.submit 'Sign Up', class: 'btn btn-success' %>
+						</div>
+					</div>
+				<% end %>
+			</div>
 		</div>
 	</div>
-	<div class="form-group row">
-		<%= f.label :email, class: 'col-md-2' %>
-		<div class="col-md-10">
-			<%= f.email_field :email, class: 'form-control' %>
-		</div>
-	</div>
-	<div class="form-group row">
-		<%= label_tag :password, nil, class: 'col-md-2' %>
-		<div class="col-md-10">
-			<%= password_field_tag 'user[password]', nil, class: 'form-control' %>
-		</div>
-	</div>
-	<div class="form-group row">
-		<%= label_tag :password_confirmation, nil, class: 'col-md-2' %>
-		<div class="col-md-10">
-			<%= password_field_tag 'user[password_confirmation]', nil, class: 'form-control' %>
-		</div>
-	</div>
-	<div class="form-group row">
-		<div class="col-md-offset-2 col-md-10">
-			<%= f.submit 'Sign Up', class: 'btn btn-success' %>
-		</div>
-	</div>
-<% end %>
+</div>
