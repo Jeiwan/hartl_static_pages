@@ -14,6 +14,9 @@ end
 group :test do
 	gem 'capybara'
 	gem 'factory_girl_rails'
+	gem 'cucumber-rails', :require => false
+	# database_cleaner is not required, but highly recommended
+	gem 'database_cleaner'
 end
 
 # Use SCSS for stylesheets

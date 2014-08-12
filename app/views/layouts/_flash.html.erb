@@ -1,7 +1,5 @@
 <div class="container">
 	<% flash.each do |k, v| %>
-		<p class="alert alert-<%= k %>">
-			<%= v %>
-		</p>
+		<%= content_tag(:p, v, class: "alert alert-#{k}") %>
 	<% end %>
 </div>
