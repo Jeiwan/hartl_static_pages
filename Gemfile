@@ -13,11 +13,16 @@ end
 
 group :test do
 	gem 'capybara'
+	gem 'selenium-webdriver'
 	gem 'factory_girl_rails'
 	gem 'cucumber-rails', :require => false
 	# database_cleaner is not required, but highly recommended
 	gem 'database_cleaner'
 end
+
+gem 'faker'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'

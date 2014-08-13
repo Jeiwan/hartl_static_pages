@@ -6,9 +6,10 @@ class SessionsController < ApplicationController
   	@user = User.find_by_email(params[:email])
 
   	if @user && @user.authenticate(params[:password])
-  		session[:user_id] = @user.id
+      sign_in @user
       flash[:success] = 'Logged in!'
-  		redirect_to @user
+  		redirect_to(session[:dead_end] || @user)
+      session[:dead_end] = nil
   	else
   		flash.now[:danger] = "Invalid email or password!"
   		render "new"

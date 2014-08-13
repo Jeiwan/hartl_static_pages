@@ -1,0 +1,41 @@
+<% page_title 'Edit Profile' %>
+<h1>Edit Profile</h1>
+<%= form_for :user, method: 'put', path: settings_path do |f| %>
+	<div class="row form-group">
+		<%= f.label :name, class: 'col-md-2' %>
+		<div class="col-md-10">
+			<%= f.text_field :name, class: 'form-control' %>
+		</div>
+	</div>
+	<div class="row form-group">
+		<%= f.label :email, class: 'col-md-2' %>
+		<div class="col-md-10">
+			<%= f.email_field :email, class: 'form-control' %>
+		</div>
+	</div>
+	<div class="row form-group">
+		<%= f.label :password, class: 'col-md-2' %>
+		<div class="col-md-10">
+			<%= f.password_field :password, class: 'form-control' %>
+		</div>
+	</div>
+	<div class="row form-group">
+		<%= f.label :password_confirmation, class: 'col-md-2' %>
+		<div class="col-md-10">
+			<%= f.password_field :password_confirmation, class: 'form-control' %>
+		</div>
+	</div>
+	<div class="row form-group">
+		<div class="col-md-2">
+			<%= gravatar_for @user %>
+		</div>
+		<div class="col-md-10">
+			<%= link_to 'Change avatar', 'http://gravatar.com/emails', target: '_blank' %>
+		</div>
+	</div>
+	<div class="row form-group">
+		<div class="col-md-offset-2 col-md-10">
+			<%= f.submit 'Save changes', class: 'btn btn-success' %>
+		</div>
+	</div>
+<% end %>

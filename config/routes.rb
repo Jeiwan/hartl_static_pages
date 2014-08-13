@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   get '/contact', to: 'static_pages#contact', as: 'contact'
   get '/other', to: 'static_pages#other', as: 'other'
 
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show, :destroy]
+  get '/settings', to: 'users#edit', as: 'settings'
+  put '/settings', to: 'users#update'
   get '/signup', to: 'users#new', as: 'signup'
   post '/signup' => 'users#create'
 

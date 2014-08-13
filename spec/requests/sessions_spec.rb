@@ -23,9 +23,26 @@ RSpec.describe "Sessions", :type => :request do
 
 			it { should have_selector('p.alert.alert-success') }
 			it { should have_title(user.name) }
-
-			# click_button('Log In')
-			# expect(response).to redirect_to(user_path(user))
 		end
+		describe "through visiting edit page" do
+			before { visit profile_path } 
+			it { should have_title 'Log In' }
+		end
+	end
+
+	describe "friendly forwarding" do
+		let(:user) { FactoryGirl.create(:user) }
+		subject { page }
+		describe "go to edit page while not logged in" do
+			before do
+				visit profile_path
+				fill_in 'Email', with: user.email
+				fill_in 'Password', with: user.password
+				click_button 'Log In'
+			end
+			it { should have_title 'Edit Profile' }
+		end
+
+
 	end
 end
