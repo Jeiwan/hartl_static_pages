@@ -1,0 +1,11 @@
+<li class="b-micropost">
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<header><%= link_to micropost.user.name, user_path(micropost.user.id) %>, posted <small><%= time_ago_in_words(micropost.created_at) %></small> ago:</header>
+			<p><%= micropost.post %></p>
+			<% if signed_in? && @user.id == current_user.id %>
+				<%= link_to 'Delete', del_micropost_path(id: micropost.id), method: :delete, data: { confirm: 'Really?' }, class: 'delete_micropost' %>
+			<% end %>
+		</div>
+	</div>
+</li>

@@ -1,8 +1,5 @@
 <% page_title "All Users" %>
 <h1>All Users</h1>
-<% if current_user && current_user.admin? %>
-<h2>EVIL ADMIN'S HERE</h2>
-<% end %>
 <%= will_paginate renderer: BootstrapPagination::Rails %>
 <section>
 	<%= render @users %>

@@ -28,8 +28,8 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
   
   config.include Capybara::DSL
-  Capybara.default_driver = :selenium
-  Capybara.default_wait_time = 15
+  # Capybara.default_driver = :selenium
+  # Capybara.default_wait_time = 15
 
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and

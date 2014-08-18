@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
 	has_secure_password
-
-	# attr_accessor :password, :password_confirmation
+	has_many :microposts, dependent: :destroy
 
 	before_save :encrypt_password
 	before_save { email.downcase! }

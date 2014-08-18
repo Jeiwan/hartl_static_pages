@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new', as: 'signup'
   post '/signup' => 'users#create'
 
+  post '/newmicropost', to: 'microposts#create', as: 'new_micropost'
+	delete '/delmicropost/:id', to: 'microposts#destroy', as: 'del_micropost'
+
   get '/login', to: 'sessions#new', as: 'login'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy', as: 'logout'

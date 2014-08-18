@@ -7,7 +7,10 @@ namespace :db do
 			name = Faker::Name.name
 			email = "#{name}-#{x}@imafak.er"
 			password = "dfgcvb"
-			User.create!(name: name, email: email, password: password, password_confirmation: password, admin: false)	
+			user = User.create!(name: name, email: email, password: password, password_confirmation: password, admin: false)	
+			rand(30..100).times do |x|
+				user.microposts << Micropost.create(post: Faker::Lorem.sentence[0..rand(140)])
+			end
 		end
 	end
 end

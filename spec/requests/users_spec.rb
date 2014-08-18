@@ -102,7 +102,6 @@ RSpec.describe "Users", :type => :request do
 				end
 
 				it { should have_title 'All Users' }
-				it { should have_content "EVIL ADMIN'S HERE" }
 				it { should have_content 'delete user' }
 				it "should be able to delete another user" do
 					expect do
