@@ -7,6 +7,7 @@ gem 'rails', '4.1.4'
 gem 'pg'
 group :development, :test do
 	gem 'rspec-rails'
+	gem 'rspec-its'
 	gem 'guard-rspec'
 	# gem 'growl'
 end

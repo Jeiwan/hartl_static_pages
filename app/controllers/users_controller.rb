@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @micropost = Micropost.new
-    @microposts = @user.microposts.paginate(page: (params[:page] || 1), per_page: 20)
+    @microposts = @user.feed.paginate(page: (params[:page] || 1), per_page: 20)
   end
 
   def edit
@@ -51,6 +51,28 @@ class UsersController < ApplicationController
     end
     redirect_to users_path
   end
+
+	def follow
+		@user_to_follow = User.find(params[:id])
+		if @user_to_follow
+			current_user.follow!(@user_to_follow)
+			flash[:success] = "Now following #{@user_to_follow.name}"
+			redirect_to user_path(@user_to_follow.id)
+		else
+			redirect_to root_path
+		end
+	end
+
+	def unfollow
+		@user_to_unfollow = User.find(params[:id])
+		if @user_to_unfollow
+			current_user.unfollow!(@user_to_unfollow)
+			flash[:success] = "No more following #{@user_to_unfollow.name}"
+			redirect_to user_path(@user_to_unfollow.id)
+		else
+			redirect_to root_path
+		end
+	end
 
   private
   	def params_user

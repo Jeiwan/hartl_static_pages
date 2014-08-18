@@ -9,7 +9,18 @@
 			<p>
 			<%= pluralize(@user.microposts.count, "micropost") %>
 			</p>
-			<%= link_to 'Follow', '' %>
+			<p>
+				Followers: <%= @user.followers.count %>
+				<% if current_user.id.to_s != params[:id] %>
+					<% if current_user.following?(@user) %>
+					<%= link_to 'Unfollow', unfollow_user_path(id: @user.id), method: :put %>
+					<% else %>
+					<%= link_to 'Follow', follow_user_path(id: @user.id), method: :put %>
+					<% end %>
+				<% end %>
+				<br>
+				Follows: <%= @user.followed_users.count %>
+			</p>
 		</section>
 	</div>
 	<div class="col-md-9">
